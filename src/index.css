@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    @apply bg-ivory text-charcoal font-sans antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif text-charcoal;
+  }
+
+  :focus-visible {
+    outline: 2px solid #A6552F;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: #A6552F;
+    color: #FAF7F1;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply px-5 sm:px-8 lg:px-12;
+  }
+
+  .label-eyebrow {
+    @apply text-xs sm:text-[13px] tracking-widest2 uppercase text-clay font-semibold;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded font-sans text-sm font-medium
+      transition-all duration-300 ease-premium select-none whitespace-nowrap
+      disabled:opacity-40 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-charcoal text-ivory px-7 py-3.5
+      hover:bg-clay-dark active:bg-clay-dark
+      focus-visible:outline-clay;
+  }
+
+  .btn-secondary {
+    @apply btn bg-transparent text-charcoal border border-charcoal/70 px-7 py-3.5
+      hover:border-charcoal hover:bg-charcoal hover:text-ivory;
+  }
+
+  .btn-ghost-light {
+    @apply btn bg-transparent text-ivory border border-ivory/60 px-7 py-3.5
+      hover:border-ivory hover:bg-ivory hover:text-charcoal;
+  }
+
+  .btn-text {
+    @apply inline-flex items-center gap-1.5 text-sm font-medium text-charcoal border-b border-charcoal/30
+      pb-0.5 transition-colors duration-300 hover:border-clay hover:text-clay-dark;
+  }
+
+  .input-field {
+    @apply w-full rounded border border-stone-300 bg-ivory/70 px-4 py-3 text-[15px] text-charcoal
+      placeholder:text-charcoal-muted/60 transition-colors duration-200
+      focus:border-clay focus:outline-none focus:ring-2 focus:ring-clay/15;
+  }
+
+  .input-field.has-error {
+    @apply border-clay-dark ring-2 ring-clay-dark/10;
+  }
+
+  .field-label {
+    @apply block text-[13px] font-medium text-charcoal-soft mb-1.5;
+  }
+
+  .field-error {
+    @apply text-[13px] text-clay-dark mt-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-sm bg-ivory/95 backdrop-blur-sm px-3 py-1.5
+      text-[12px] font-medium tracking-wide text-charcoal border border-charcoal/10;
+  }
+
+  .card-surface {
+    @apply bg-ivory-50 border border-stone-200 rounded-md shadow-card transition-shadow duration-300;
+  }
+}
