@@ -17,10 +17,10 @@ const TALL_COUNT = 12;
 export function fallbackFor(seed: string, orientation: 'wide' | 'tall' = 'wide'): string {
   const n = orientation === 'wide' ? WIDE_COUNT : TALL_COUNT;
   const idx = (hash(seed) % n) + 1;
-  return `/images/ph/${orientation}-${idx}.jpg`;
+  return `${import.meta.env.BASE_URL}images/ph/${orientation}-${idx}.jpg`;
 }
 
 export function agentFallback(seed: string): string {
   const idx = (hash(seed) % 3) + 1;
-  return `/images/ph/agent-${idx}.jpg`;
+  return `${import.meta.env.BASE_URL}images/ph/agent-${idx}.jpg`;
 }
